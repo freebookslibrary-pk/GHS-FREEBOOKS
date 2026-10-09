@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#075b3b">
+  <title>GHS-FreeBooks | Books & Syllabus</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f8f5;
+      color: #18372a;
+    }
+    header {
+      background: #075b3b;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 24px; font-weight: 800; }
+    nav { display: flex; gap: 16px; flex-wrap: wrap; }
+    nav a { color: white; text-decoration: none; font-size: 14px; }
+    .hero {
+      padding: 55px 6% 45px;
+      background: linear-gradient(135deg, #075b3b, #13865a);
+      color: white;
+      text-align: center;
+    }
+    .school {
+      display: inline-block;
+      border: 1px solid #ffffff80;
+      border-radius: 30px;
+      padding: 8px 14px;
+      font-size: 13px;
+    }
+    h1 { font-size: clamp(32px, 6vw, 52px); margin: 22px 0 12px; }
+    .hero p { line-height: 1.7; }
+    .search {
+      display: flex;
+      max-width: 620px;
+      margin: 25px auto 0;
+      gap: 8px;
+    }
+    input {
+      min-width: 0;
+      flex: 1;
+      padding: 15px;
+      border: 0;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    button {
+      cursor: pointer;
+      border: 0;
+      border-radius: 9px;
+      padding: 13px 17px;
+      font-weight: bold;
+      background: #d8f5df;
+      color: #075b3b;
+    }
+    main { max-width: 1150px; margin: auto; padding: 20px; }
+    section { padding: 22px 0; }
+    h2 { font-size: 26px; margin-bottom: 8px; }
+    .muted { color: #63766a; line-height: 1.6; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e0ebe3;
+      border-radius: 16px;
+      padding: 21px;
+      box-shadow: 0 5px 18px #123c1710;
+    }
+    .emoji { font-size: 32px; }
+    .card h3 { margin: 12px 0 8px; }
+    .card p { color: #63766a; line-height: 1.5; font-size: 14px; }
+    .card button { background: #08764b; color: white; margin-top: 8px; }
+    .label {
+      display: inline-block;
+      background: #e3f5e9;
+      color: #08764b;
+      border-radius: 20px;
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+    #results { margin-top: 18px; }
+    footer {
+      background: #073e2b;
+      color: white;
+      text-align: center;
+      padding: 28px 16px;
+      margin-top: 30px;
+      line-height: 1.9;
+    }
+    footer small { color: #c4e5d1; }
+    @media(max-width: 480px) {
+      header { padding: 16px; }
+      nav { gap: 12px; }
+      .hero { padding: 40px 17px; }
+      .search { flex-direction: column; }
+      main { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">📚 GHS-FreeBooks</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#books">Free Books</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="#publishers">Publishers</a>
+    </nav>
+  </header>  <div class="hero" id="home">
+    <span class="school">Government High School Sivia</span>
+    <h1>Books, Syllabus & Learning</h1>
+    <p>Your books. Your syllabus. Your future. All in one place.</p>
+    <div class="search">
+      <input id="searchBox" type="search"
+        placeholder="Search books, subjects or syllabus...">
+      <button onclick="searchItems()">Search</button>
+    </div>
+    <div id="results"></div>
+  </div>  <main>
+    <section id="books">
+      <h2>📚 Explore Free Books</h2>
+      <p class="muted">Find textbooks by subject and medium.</p>
+      <div class="grid">
+        <article class="card searchable">
+          <div class="emoji">💻</div>
+          <span class="label">Class 9</span>
+          <h3>Computer Science</h3>
+          <p>Board and publisher information will be added with each verified book.</p>
+          <button onclick="showInfo('Computer Science')">View Book</button>
+        </article>
+        <article class="card searchable">
+          <div class="emoji">➗</div>
+          <span class="label">Class 9</span>
+          <h3>Mathematics</h3>
+          <p>Urdu and English medium book listings.</p>
+          <button onclick="showInfo('Mathematics')">View Book</button>
+        </article>
+        <article class="card searchable">
+          <div class="emoji">⚛️</div>
+          <span class="label">Class 9</span>
+          <h3>Physics</h3>
+          <p>Find the relevant textbook for your board.</p>
+          <button onclick="showInfo('Physics')">View Book</button>
+        </article>
+        <article class="card searchable">
+          <div class="emoji">🧪</div>
+          <span class="label">Class 9</span>
+          <h3>Chemistry</h3>
+          <p>Book details and PDF links will appear here.</p>
+          <button onclick="showInfo('Chemistry')">View Book</button>
+        </article>
+      </div>
+    </section><section id="syllabus">
+  <h2>📝 Class Syllabus</h2>
+  <p class="muted">Board-wise syllabus and subjects. Verified syllabus documents can be linked here.</p>
+  <div class="grid">
+    <article class="card searchable">
+      <div class="emoji">📘</div>
+      <h3>Class 9 Syllabus</h3>
+      <p>Browse subjects and syllabus resources for your education board.</p>
+      <button onclick="showInfo('Class 9 Syllabus')">Explore Syllabus</button>
+    </article>
+    <article class="card searchable">
+      <div class="emoji">📗</div>
+      <h3>Class 10 Syllabus</h3>
+      <p>Additional class resources can be added later.</p>
+      <button onclick="showInfo('Class 10 Syllabus')">Explore Syllabus</button>
+    </article>
+    <article class="card searchable">
+      <div class="emoji">🌐</div>
+      <h3>Education Boards</h3>
+      <p>Punjab, Federal and other Pakistani boards.</p>
+      <button onclick="showInfo('Education Boards')">Browse Boards</button>
+    </article>
+  </div>
+</section>
+
+<section id="publishers">
+  <h2>🏢 Explore Publishers</h2>
+  <p class="muted">Publisher profiles and their available books will be organized here.</p>
+  <div class="grid">
+    <article class="card searchable">
+      <div class="emoji">🏛️</div>
+      <h3>Textbook Boards</h3>
+      <p>Browse verified official textbook resources.</p>
+      <button onclick="showInfo('Textbook Boards')">View Resources</button>
+    </article>
+    <article class="card searchable">
+      <div class="emoji">📖</div>
+      <h3>Other Publishers</h3>
+      <p>More publisher listings can be added as verified.</p>
+      <button onclick="showInfo('Other Publishers')">View Publishers</button>
+    </article>
+  </div>
+</section>
+
+  </main>  <footer>
+    <strong>📚 GHS-FreeBooks</strong><br>
+    Books, Syllabus & Learning — All in One Place.<br>
+    Government High School Sivia<br>
+    <small>Credit: Asher</small><br>
+    <small>Only share PDFs you have permission to distribute.</small>
+  </footer>  <script>
+    function showInfo(item) {
+      alert(item + ': Book and syllabus links will be connected in the next setup step.');
+    }
+
+    function searchItems() {
+      const query = document.getElementById('searchBox').value
+        .trim().toLowerCase();
+      const cards = document.querySelectorAll('.searchable');
+      let count = 0;
+
+      cards.forEach(card => {
+        const match = card.innerText.toLowerCase().includes(query);
+        card.style.display = match ? '' : 'none';
+        if (match) count++;
+      });
+
+      document.getElementById('results').textContent = query
+        ? count + ' matching sections found'
+        : '';
+    }
+
+    document.getElementById('searchBox').addEventListener('keydown', e => {
+      if (e.key === 'Enter') searchItems();
+    });
+  </script></body>
+  </html>
